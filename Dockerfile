@@ -1,4 +1,4 @@
-# howgood/postgresql:9.3
+# howgood/postgres:9.3
 
 FROM postgres:9.3
 
