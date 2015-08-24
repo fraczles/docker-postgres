@@ -1,6 +1,6 @@
 # howgood/postgres
 
-FROM postgres:9.3
+FROM postgres:9.4
 
 ENV GIS_VERSION 2.1
 
