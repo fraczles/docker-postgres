@@ -17,7 +17,7 @@ RUN apt-get update && \
 ENV PGUSER super_user
 ENV PGPASSWORD super_user
 ENV PGDATABASE super_user
-ENV PGEXTENSIONS postgis postgis_topology pg_trgm fuzzystrmatch
+ENV PGEXTENSIONS hstore postgis postgis_topology pg_trgm fuzzystrmatch
 
 COPY ./custom.postgresql.conf /
 COPY ./docker-entrypoint.sh /
