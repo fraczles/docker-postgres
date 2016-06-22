@@ -2,4 +2,4 @@
 
 FROM howgood/postgres:latest
 
-COPY 20-add-to-conf.sh /docker-entrypoint-initdb.d/20-add-to-conf.sh
+COPY 10-add-to-conf.sh /docker-entrypoint-initdb.d/10-add-to-conf.sh
