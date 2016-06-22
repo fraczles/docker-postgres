@@ -13,7 +13,7 @@ RUN apt-get update && \
     apt-get clean && \
     apt-get autoremove
 
-COPY setup-db.sh /docker-entrypoint-initdb.d/setup-db.sh
+COPY 00-setup-db.sh /docker-entrypoint-initdb.d/00-setup-db.sh
 
 # Default extensions
 ENV POSTGRES_EXTENSIONS hstore postgis postgis_topology pg_trgm fuzzystrmatch
