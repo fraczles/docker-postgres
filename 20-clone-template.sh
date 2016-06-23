@@ -9,7 +9,7 @@ for extension in $POSTGRES_EXTENSIONS; do
     --echo-queries \
     --set ON_ERROR_STOP=1 \
     --username "$POSTGRES_USER" \
-    --database template1 \
+    --dbname template1 \
     --command \
       "CREATE EXTENSION $extension ;"
 done
