@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -23,14 +23,17 @@ full_page_writes = off
 EOS
 
 # Install extensions
-"${psql[@]}" <<-'EOSQL'
+for DB in template_postgis "$POSTGRES_DB" template1; do
+  echo "Creating extensions for ${DB}..."
+  "${psql[@]}" --echo-all --dbname="$DB" <<-'EOSQL'
 
-CREATE EXTENSION IF NOT EXISTS postgis;
-CREATE EXTENSION IF NOT EXISTS postgis_topology;
-CREATE EXTENSION IF NOT EXISTS fuzzystrmatch;
-CREATE EXTENSION IF NOT EXISTS postgis_tiger_geocoder;
+  CREATE EXTENSION IF NOT EXISTS postgis;
+  CREATE EXTENSION IF NOT EXISTS postgis_topology;
+  CREATE EXTENSION IF NOT EXISTS fuzzystrmatch;
+  CREATE EXTENSION IF NOT EXISTS postgis_tiger_geocoder;
 
-CREATE EXTENSION IF NOT EXISTS hstore;
-CREATE EXTENSION IF NOT EXISTS pg_trgm;
+  CREATE EXTENSION IF NOT EXISTS hstore;
+  CREATE EXTENSION IF NOT EXISTS pg_trgm;
 
 EOSQL
+done
