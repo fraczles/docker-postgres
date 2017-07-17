@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
 
+
+if [[ "$1" == '--help' || "$1" == '-h' || "$1" == 'help' ]]; then
+  echo "Usage: $(basename "$0") <dump-file>"
+  exit 1
+fi
+
 # Container stuff
 # docker container exec -i "${CONTAINER_ID}" bash -l -c <<'EOF'
 # Set native postgres variables
+
 export PGUSER="$POSTGRES_USER"
 export PGPASSWORD="$POSTGRES_PASSWORD"
 export PGDATABASE="$POSTGRES_DB"
